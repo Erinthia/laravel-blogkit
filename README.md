@@ -55,3 +55,45 @@ Proses instalasi seperti gambar berikut
 B.	Tugas 1
 Selesaikan praktikum 1 hingga Anda bisa melakukan login ke Dashboard. Pelajari bagian controller, view, model dan middleware yang terbentuk dalam project tersebut. Push ke akun github Anda masing-masing lalu lampirkan link repo github Anda ke LMS Tugas 27. Lengkapi di file README sebagai laporan praktikum Anda disertai dengan hasil capture tiap langkah atau hasil akhirnya
 
+
+C.	Implementasi Authorization di Laravel
+Selain menyediakan layanan otentikasi bawaan, Laravel juga menyediakan cara sederhana untuk mengotorisasi tindakan pengguna terhadap sumber daya tertentu. Misalnya, meskipun pengguna diautentikasi, mereka mungkin tidak berwenang untuk memperbarui atau menghapus model Eloquent atau rekaman database tertentu yang dikelola oleh aplikasi Anda. Fitur otorisasi Laravel menyediakan cara yang mudah dan terorganisir untuk mengelola jenis pemeriksaan otorisasi ini.
+Laravel menyediakan dua cara utama untuk mengotorisasi tindakan: gates dan policies. Bayangkan gates dan policies seperti rute dan pengontrol. Gates menyediakan pendekatan otorisasi berbasis penutupan yang sederhana, sementara policies, seperti pengontrol, mengelompokkan logika di sekitar model atau sumber daya tertentu. Dalam jobsheet ini, kita akan menjelajahi gates terlebih dahulu, lalu memeriksa policies.
+Anda tidak perlu memilih antara menggunakan gates secara eksklusif atau menggunakan policies secara eksklusif saat membuat aplikasi. Sebagian besar aplikasi kemungkinan besar berisi campuran gates dan policies, dan itu tidak masalah! Gates paling dapat diterapkan pada tindakan yang tidak terkait dengan model atau sumber daya apa pun, seperti melihat dasbor administrator. Sebaliknya, policies harus digunakan ketika Anda ingin mengotorisasi suatu tindakan untuk model atau sumber daya tertentu
+
+
+
+
+
+
+Praktikum 2 -Implementasi Authorization di Laravel
+Kita akan menerapkan authorization pada project Laravel. Langkah-langkah yang kita kerjakan sebagai berikut:
+1)	Kita akan menggunakan Laravel Blog Starter Kit yang dibangun dengan Laravel 10, Tailwind CSS, AlpineJS, dan Livewire.
+2)	Lakukan git clone dengan perintah berikut di Terminal
+ ![image](https://github.com/user-attachments/assets/ab300def-e257-446d-b272-39ddafc6698d)
+
+3)	Kemudian buka project laravel-blogkit dengan code editor favorit Anda, lalu install dependensi dengan perintah composer install 
+ ![image](https://github.com/user-attachments/assets/f1834cf2-8b0d-486f-8cd5-fb4535cf5ee6)
+
+4)	Pada bagian config file config/blog.php ubahlah demoMode menjadi true 
+ ![image](https://github.com/user-attachments/assets/5feb01a7-80a7-47b4-bfbf-ff4a6cfe1f2e)
+
+5)	Lalu rename file .env.example menjadi .env 
+ ![image](https://github.com/user-attachments/assets/9eed3ea5-6d75-4257-991d-3c47c018df0d)
+
+6)	Sesuaikan DB config dengan menggunakan SQLite seperti pada praktikum 1 sebelumnya. 
+7)	Kemudian jalankan perintah berikut untuk menggenerate key pada .env php artisan key:generate 
+ ![image](https://github.com/user-attachments/assets/7f1fcb32-2bf6-4f7b-9f1d-97e8a2c330bb)
+
+8)	Lalu lakukan migration dengan perintah berikut php artisan migrate 
+9)	Selanjutnya kita buat akun admin dengan cara menjalankan perintah berikut php artisan admin:create 
+ ![image](https://github.com/user-attachments/assets/1f3eaba3-bb05-4536-80c2-5a47d09a1939)
+
+Hasilnya seperti gambar berikut Terakhir coba running dengan perintah php artisan
+ ![image](https://github.com/user-attachments/assets/2b905155-7165-4335-bc55-cffe6dd40a5b)
+
+Terakhir coba running dengan perintah php artisan serve 
+10)	 Coba login dengan akun admin, pelajari setiap menu dan tampilan yang ada. 
+11)	Buatlah akun dengan cara register, lalu ubah otorisasi antara admin, guest, author, dan akun yang diblokir (banned)
+D.	Tugas 2
+Implementasikan authentication dan authorization pada project Laravel tugas pertemuan sebelumnya
