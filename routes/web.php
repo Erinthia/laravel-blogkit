@@ -6,6 +6,7 @@ use App\Http\Controllers\ReadmeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Models\Post;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::resource('articles', ArticleController::class);
 Route::get('/', function () {
     return view('welcome', [
         'posts' => Post::count()
