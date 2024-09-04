@@ -40,5 +40,6 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware(['aut
 if (config('blog.readme')) {
     Route::get('/readme', ReadmeController::class);
 }
+Route::get('/article/cetak_pdf',['article'=>$articles]);
 
 require __DIR__.'/auth.php';
